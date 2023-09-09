@@ -6,7 +6,7 @@ declare global {
 
   // App Reducer
   interface AppStoreState {
-    tasks: any[];
+    users: any[];
     loading: Boolean;
   }
 }

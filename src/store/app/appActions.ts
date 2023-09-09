@@ -1,11 +1,18 @@
 import { Dispatch } from "redux";
 import { appActions } from "./appReducer";
+import axios from "axios";
 
-export const getTasks = () => {
+export const getTasks = (): any => {
   return async (dispatch: Dispatch) => {
-    dispatch(appActions.setLoading(true));
-    setTimeout(() => {
+    try {
       dispatch(appActions.setLoading(true));
-    }, 3000);
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      dispatch(appActions.setUsers(response.data));
+      dispatch(appActions.setLoading(false));
+    } catch (error) {
+      dispatch(appActions.setLoading(false));
+    }
   };
 };

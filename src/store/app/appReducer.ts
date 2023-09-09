@@ -2,7 +2,7 @@ import { CaseReducer, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { buildSubStateSelector } from "./../subSelector";
 
 const initialState: AppStoreState = {
-  tasks: [],
+  users: [],
   loading: false,
 };
 
@@ -12,7 +12,7 @@ export const appSlice = createSlice<
   AppState,
   {
     setLoading: CaseReducer<AppState, PayloadAction<Boolean>>;
-    setTasks: CaseReducer<AppState, PayloadAction<any[]>>;
+    setUsers: CaseReducer<AppState, PayloadAction<any[]>>;
   }
 >({
   name: "app",
@@ -25,10 +25,10 @@ export const appSlice = createSlice<
       };
     },
 
-    setTasks: (state, { payload }) => {
+    setUsers: (state, { payload }) => {
       return {
         ...state,
-        tasks: payload,
+        users: payload,
       };
     },
   },
