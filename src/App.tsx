@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getTasks } from "./store/app/appActions";
+import { getUsers } from "./store/app/appActions";
 import { useAppSelector } from "./store/app/appReducer";
 import "./index.css";
+
 const App = () => {
   const dispatch = useDispatch();
   const { loading, users } = useAppSelector((state) => state);
 
   useEffect(() => {
-    dispatch(getTasks());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    dispatch(getUsers());
+  }, [dispatch]);
 
   return (
     <div className="w-screen h-screen">

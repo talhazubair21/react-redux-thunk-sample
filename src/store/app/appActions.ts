@@ -2,7 +2,7 @@ import { Dispatch } from "redux";
 import { appActions } from "./appReducer";
 import axios from "axios";
 
-export const getTasks = (): any => {
+export const getUsers = (): any => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch(appActions.setLoading(true));
